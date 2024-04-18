@@ -52,14 +52,21 @@ export default {
           localStorage.setItem("role", res.data.role);
           this.$store.dispatch("role", res.data.role);
           axios.defaults.headers.common["secret_authtoken"] = res.data.token;
-          if(res.data.role == "1" || res.data.role == "2" || res.data.role == "3" || res.data.role == "4"){
+          if(res.data.role == "1"){
+            this.$router.push("/userhome");
+          }
+          if(res.data.role == "2"){
             this.$router.push("/dashboard");
+          }
+          if(res.data.role == "3"){
+            this.$router.push("/SupportProfile");
           }
         } else {
           alert(res.data.message);
         }
-      }).catch(err => {
-        console.log(err);
+      }).catch(error => {
+        
+      alert(error.response.data.message);
       });
     },
   }

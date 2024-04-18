@@ -5,7 +5,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-import UserComponent from './usercomponents/UserComponent.vue';
+import UserHome from './usercomponents/UserHome.vue';
 import AdminDashboard from './admincomponents/AdminDashboard.vue';
 import SupportProfile from './staffcomponents/SupportProfile.vue';
 import DashboardManagerComponent from './extracomponents/DashboardManager.vue';
@@ -13,7 +13,7 @@ import DashboardManagerComponent from './extracomponents/DashboardManager.vue';
 export default {
   name: 'dash_board',
   components: {
-    UserComponent: UserComponent,
+    UserHome: UserHome,
     AdminDashboard: AdminDashboard,
     SupportProfile: SupportProfile,
     DashboardManager: DashboardManagerComponent
@@ -23,7 +23,7 @@ export default {
     appropriateComponent() {
     switch(this.$store.state.role){ 
         case 1:
-            return "UserComponent"
+            return "UserHome"
         case 2: 
             return "SupportProfile"
         case 3: 

@@ -1,30 +1,15 @@
 <template>
     <div class="sidebar" style="margin-top: 60px;">
-      <!-- User information -->
-      <div class="user-info">
-        <!-- Small user photo -->
-        <div class="small-user-photo">
-          <img src="../profile.jpg" alt="User Photo" class="small-rounded-photo">
-        </div>
-        <!-- Username -->
-        <div class="username">
-          <p>{{ user.name }}</p>
-        </div>
-        <!-- Edit Profile button -->
-        <button @click="editProfile" class="edit-profile-button">Edit Profile</button>
-        <!-- Email
-         -->
-        <div class="user-email">
-          <p>Email: {{ user.email }}</p>
-        </div>
-      </div>
+      
+     
       <!-- Navigation links -->
       <div class="navigation-links">
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Your Tickets</a></li>
-          <li><a href="#">Notifications</a></li>
-          <li><a href="#">Settings</a></li>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/mytickets">My Tickets</a></li>
+            <li><a href="/newticket">New Ticket</a></li>
+            <li><a href="/faq">FAQs</a></li>
+            <li><a href="/usersettings">Settings</a></li>
         </ul>
       </div>
       <button @click="newTicket" class="new-ticket-button" style="margin-left: 50px;">+ New Ticket</button>

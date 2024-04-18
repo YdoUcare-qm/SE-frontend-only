@@ -5,7 +5,17 @@ import LoginComponent from '../components/LoginComponent.vue';
 import dash_board from '../components/Dashboard.vue';
 // import DashboardAdminComponent from '../components/DashboardAdminComponent.vue';
 // import DashboardSupportAgentComponent from '../components/DashboardSupportAgentComponent.vue';
-import AddTicketComponent from '../components/extracomponents/AddTicketComponent.vue';
+import NewTicket from '../components/usercomponents/NewTicket.vue';
+import MyTickets from '../components/usercomponents/MyTickets.vue';
+import UserHome from '../components/usercomponents/UserHome.vue';
+import UserSubscriptions from '../components/usercomponents/UserSubscriptions.vue';
+import UserProfile from '../components/usercomponents/UserProfile.vue';
+import FAQ from '../components/usercomponents/FAQ.vue';
+import UserSettings from '../components/usercomponents/UserSettings.vue';
+import CategoryTopics from '../components/usercomponents/CategoryTopics.vue';
+import TopicPosts from '../components/usercomponents/TopicPosts.vue';
+import TicketPage from '../components/usercomponents/TicketPage.vue';
+
 import EditTicketComponent from '../components/extracomponents/EditTicketComponent.vue';
 import AllTicketComponent from '../components/extracomponents/AllTicketComponent.vue';
 import ResponseComponent from '../components/extracomponents/ResponseComponent.vue';
@@ -13,9 +23,9 @@ import ManageUsersComponent from '../components/extracomponents/ManageUsersCompo
 import ManageFAQSuggestionsComponent from '../components/extracomponents/ManageFAQComponent.vue';
 import ManageFlaggedPosts from '../components/extracomponents/ManageFlaggedPosts.vue';
 import AddAdminsComponent from '../components/extracomponents/AddAdmins.vue';
-import UserComponent from '../components/usercomponents/UserComponent.vue';
-import SettingsComponent from '../components/generalcomponents/SettingsComponent.vue';
-import SubscriptionComponent from '../components/usercomponents/SubscriptionComponent.vue';
+
+
+
 import NotificationComponent from '../components/extracomponents/NotificationComponent.vue';
 import ThreadComponent from '../components/staffcomponents/ThreadComponent.vue'
 import FrequentlyComponent from '../components/generalcomponents/FrequentlyComponent.vue'
@@ -29,6 +39,51 @@ import RegistrationComponent from '../components/RegistrationComponent.vue';
 import AdminDashboard from '../components/admincomponents/AdminDashboard.vue';
 // import store from "../store";
 const routes = [
+    //user paths
+    {
+        path: "/subscriptions",
+        component: UserSubscriptions,
+    },
+    {
+        path: "/mytickets",
+        component: MyTickets,
+    },
+    {
+        path: "/newticket",
+        component: NewTicket,
+    },
+    {
+        path: "/userhome",
+        component: UserHome,
+    },
+    {
+        path: "/userprofile",
+        component: UserProfile,
+    },
+    {
+        path: "/faq",
+        component: FAQ,
+    },
+    {
+        path: "/usersettings",
+        component: UserSettings,
+    },
+    {
+        path: "/categorytopics/:id",
+        component: CategoryTopics,
+        props: true
+    },
+    {
+        path: "/topicposts/:id",
+        component: TopicPosts,
+        props: true
+    },
+    {
+        path: "/ticket/:ticketid",
+        component: TicketPage,
+        props: true
+    },
+    //
     {
         path: "/",
         component: LoginComponent,
@@ -49,10 +104,7 @@ const routes = [
         path: "/dashboard",
         component: dash_board,
     },
-    {
-        path: "/addTicket",
-        component: AddTicketComponent,
-    },
+    
     {
         name: "editTicket",
         path: "/editTicket/:ticketId",
@@ -89,18 +141,6 @@ const routes = [
         path: "/addAdmins",
         component: AddAdminsComponent,
         name: "AddAdmins"
-    },
-    {
-        path: "/UserComponent",
-        component: UserComponent,
-    },
-    {
-        path: "/SettingsComponent",
-        component: SettingsComponent,
-    },
-    {
-        path: "/SubscriptionComponent",
-        component: SubscriptionComponent,
     },
     {
         path: "/NotificationComponent",
