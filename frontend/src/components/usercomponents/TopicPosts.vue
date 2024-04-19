@@ -38,7 +38,11 @@
       </li>
     </ul>
   </div>
-    
+  <div v-if="postID != 0" class="fixed-box">
+          <h4>Resolution</h4>
+          <div>{{ resolvedContent }}</div>
+          
+        </div>
         </div>   
       </div>
     
@@ -49,11 +53,15 @@
     name: 'TopicPosts',
   
     data() {
-      return {
-        websiteName: "Dis.integrate",
-        topicId: null,
-        posts: [],
-        data:null
+    return {
+      websiteName: "Dis.integrate",
+      topicId: null,
+      posts: [],
+      data: null,
+      postID: null,
+      resolvedContent: '',
+      isModalOpen: false,
+      solution: '' 
     };
   },
 
@@ -63,9 +71,8 @@
     // Fetch posts for the topic
     this.fetchPosts();
   },
-
   methods: {
-    async fetchPosts() {
+  async fetchPosts() {
       try {
         // Fetch posts for the topic
         const response = await fetch('http://localhost:5000/api/posts', {
@@ -76,27 +83,71 @@
           body: JSON.stringify({ id: this.topicId })
         });
         this.data = await response.json();
-        
         this.posts = this.data.post_stream.posts;
-        console.log(this.posts)
+        // After fetching posts, check for topic resolution
+        this.checkTopicResolution();
       } catch (error) {
         console.error('Error fetching posts:', error);
       }
     },
+
+    async checkTopicResolution() {
+      try {
+        // Fetch topic resolution status
+        const resolutionResponse = await fetch(`http://localhost:5000/api/staff/topicresolution`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ topic_id: this.topicId })
+        });
+        const resolutionData = await resolutionResponse.json();
+        console.log(resolutionData)
+        this.postID = resolutionData.post_id
+        console.log(this.postID)
+        // Check if topic is resolved
+        if (resolutionData.post_id > 0) {
+          // If topic is resolved, find the resolved post in the fetched posts
+          const resolvedPost = this.posts.find(post => post.id === resolutionData.post_id);
+          if (resolvedPost) {
+            // If topic is resolved, set the resolved content
+            this.resolvedContent = resolvedPost.cooked;
+          }
+        }
+      } catch (error) {
+        console.error('Error checking topic resolution:', error);
+      }
+    },
+
+    logoutUser() {
+      // Logic to handle user logout
+    },
+
     formatDate(date) {
       return new Date(date).toLocaleDateString();
-    }
+    },
   }
 }
 </script>
   
   <style scoped>
   /* Left-side navigation bar styles */
-  .user-home {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-  }
+  .topic-posts {
+  margin-bottom: 300px; /* Adjusted to match the height of the fixed navbar */
+}
+
+/* Fixed box for resolved topic */
+.fixed-box {
+  position: fixed;
+  bottom: 0px;
+  left: 250px;
+  min-height: 130px;
+  width: calc(100% - 40px); /* Adjusted to match padding */
+  padding: 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
   
   .category-card {
     width: 300px;

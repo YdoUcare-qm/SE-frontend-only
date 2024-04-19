@@ -91,11 +91,11 @@
   
   <style scoped>
   /* Left-side navigation bar styles */
-  .user-home {
+  /* .category-topics {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-  }
+  } */
   
   .category-card {
     width: 300px;

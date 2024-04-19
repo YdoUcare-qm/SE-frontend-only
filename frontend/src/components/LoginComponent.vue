@@ -56,7 +56,7 @@ export default {
             this.$router.push("/userhome");
           }
           if(res.data.role == "2"){
-            this.$router.push("/dashboard");
+            this.$router.push("/staffhome");
           }
           if(res.data.role == "3"){
             this.$router.push("/SupportProfile");

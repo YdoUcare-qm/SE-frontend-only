@@ -49,11 +49,9 @@
             <label for="discourse">Discourse</label>
           </div>
         </div>
-        <div class="tags-header">TAGS</div>
-        <div class="search-container">
-          <input type="text" v-model="search" placeholder="Search...">
-        </div>
-        <div class="edit-preferences-button">Edit Preferences</div>
+        
+        
+        <button class="edit-preferences-button">Edit Preferences</button>
       </div>
     </div>
   </template>

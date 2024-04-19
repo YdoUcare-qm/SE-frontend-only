@@ -1,10 +1,10 @@
 import { createWebHistory, createRouter } from 'vue-router';
 import ChangePasswordComponent from '../components/extracomponents/ChangePasswordComponent.vue';
 import LoginComponent from '../components/LoginComponent.vue';
-// import DashboardStudentComponent from '../components/DashboardStudentComponent.vue';
+
 import dash_board from '../components/Dashboard.vue';
-// import DashboardAdminComponent from '../components/DashboardAdminComponent.vue';
-// import DashboardSupportAgentComponent from '../components/DashboardSupportAgentComponent.vue';
+
+//user components
 import NewTicket from '../components/usercomponents/NewTicket.vue';
 import MyTickets from '../components/usercomponents/MyTickets.vue';
 import UserHome from '../components/usercomponents/UserHome.vue';
@@ -16,28 +16,41 @@ import CategoryTopics from '../components/usercomponents/CategoryTopics.vue';
 import TopicPosts from '../components/usercomponents/TopicPosts.vue';
 import TicketPage from '../components/usercomponents/TicketPage.vue';
 
-import EditTicketComponent from '../components/extracomponents/EditTicketComponent.vue';
-import AllTicketComponent from '../components/extracomponents/AllTicketComponent.vue';
-import ResponseComponent from '../components/extracomponents/ResponseComponent.vue';
-import ManageUsersComponent from '../components/extracomponents/ManageUsersComponent.vue';
-import ManageFAQSuggestionsComponent from '../components/extracomponents/ManageFAQComponent.vue';
-import ManageFlaggedPosts from '../components/extracomponents/ManageFlaggedPosts.vue';
-import AddAdminsComponent from '../components/extracomponents/AddAdmins.vue';
+//Staff Components
+
+import ManageTickets from '../components/staffcomponents/ManageTickets.vue';
+import ManageTopics from '../components/staffcomponents/ManageTopics.vue';
+import StaffHome from '../components/staffcomponents/StaffHome.vue';
+import StaffProfile from '../components/staffcomponents/StaffProfile.vue';
+import StaffSettings from '../components/staffcomponents/StaffSettings.vue';
+import StaffCategoryTopics from '../components/staffcomponents/StaffCategoryTopics.vue';
+import StaffTopicPosts from '../components/staffcomponents/StaffTopicPosts.vue';
+import StaffTicketPage from '../components/staffcomponents/StaffTicketPage.vue';
+
+//
+
+// import EditTicketComponent from '../components/extracomponents/EditTicketComponent.vue';
+// import AllTicketComponent from '../components/extracomponents/AllTicketComponent.vue';
+// import ResponseComponent from '../components/extracomponents/ResponseComponent.vue';
+// import ManageUsersComponent from '../components/extracomponents/ManageUsersComponent.vue';
+// import ManageFAQSuggestionsComponent from '../components/extracomponents/ManageFAQComponent.vue';
+// import ManageFlaggedPosts from '../components/extracomponents/ManageFlaggedPosts.vue';
+// import AddAdminsComponent from '../components/extracomponents/AddAdmins.vue';
 
 
 
-import NotificationComponent from '../components/extracomponents/NotificationComponent.vue';
-import ThreadComponent from '../components/staffcomponents/ThreadComponent.vue'
-import FrequentlyComponent from '../components/generalcomponents/FrequentlyComponent.vue'
-import ThreadMangementComponent from '../components/staffcomponents/ThreadMangementComponent.vue'
-import SupportProfile from '../components/staffcomponents/SupportProfile.vue'
-import SupportChat from '../components/extracomponents/SupportChat.vue'
-import SupportStaffManagement from '../components/admincomponents/SupportStaffManagement.vue';
-import UserManagement from '../components/admincomponents/UserManagement.vue';
-import RaisedRequests from '../components/admincomponents/RaisedRequests.vue';
-import RegistrationComponent from '../components/RegistrationComponent.vue';
-import AdminDashboard from '../components/admincomponents/AdminDashboard.vue';
-// import store from "../store";
+// import NotificationComponent from '../components/extracomponents/NotificationComponent.vue';
+// import ThreadComponent from '../components/staffcomponents/ThreadComponent.vue'
+// import FrequentlyComponent from '../components/generalcomponents/FrequentlyComponent.vue'
+// import ThreadMangementComponent from '../components/staffcomponents/ThreadMangementComponent.vue'
+// import SupportProfile from '../components/staffcomponents/SupportProfile.vue'
+// import SupportChat from '../components/extracomponents/SupportChat.vue'
+// import SupportStaffManagement from '../components/admincomponents/SupportStaffManagement.vue';
+// import UserManagement from '../components/admincomponents/UserManagement.vue';
+// import RaisedRequests from '../components/admincomponents/RaisedRequests.vue';
+ import RegistrationComponent from '../components/RegistrationComponent.vue';
+ import AdminDashboard from '../components/admincomponents/AdminDashboard.vue';
+//  import store from "../store";
 const routes = [
     //user paths
     {
@@ -83,6 +96,43 @@ const routes = [
         component: TicketPage,
         props: true
     },
+    //staff paths
+    
+    {
+        path: "/managetickets",
+        component: ManageTickets,
+    },
+    {
+        path: "/managetopics",
+        component: ManageTopics,
+    },
+    {
+        path: "/staffhome",
+        component: StaffHome,
+    },
+    {
+        path: "/staffprofile",
+        component: StaffProfile,
+    },
+    {
+        path: "/staffsettings",
+        component: StaffSettings,
+    },
+    {
+        path: "/staffcategorytopics/:id",
+        component: StaffCategoryTopics,
+        props: true
+    },
+    {
+        path: "/stafftopicposts/:id",
+        component: StaffTopicPosts,
+        props: true
+    },
+    {
+        path: "/staffticket/:ticketid",
+        component: StaffTicketPage,
+        props: true
+    },
     //
     {
         path: "/",
@@ -103,86 +153,86 @@ const routes = [
     {
         path: "/dashboard",
         component: dash_board,
-    },
+    }//,
     
-    {
-        name: "editTicket",
-        path: "/editTicket/:ticketId",
-        component: EditTicketComponent,
-        props: true
-    },
-    {
-        path: "/allTicket",
-        component: AllTicketComponent,
-    },
-    {
-        path: "/response/:ticketId",
-        component: ResponseComponent,
-        name: "response",
-        props: true
-    },
-    {
-        path: "/manageUsers",
-        component: ManageUsersComponent,
-        name: "manageUsers"
+    // {
+    //     name: "editTicket",
+    //     path: "/editTicket/:ticketId",
+    //     component: EditTicketComponent,
+    //     props: true
+    // },
+    // {
+    //     path: "/allTicket",
+    //     component: AllTicketComponent,
+    // },
+    // {
+    //     path: "/response/:ticketId",
+    //     component: ResponseComponent,
+    //     name: "response",
+    //     props: true
+    // },
+    // {
+    //     path: "/manageUsers",
+    //     component: ManageUsersComponent,
+    //     name: "manageUsers"
 
-    },
-    {
-        path: "/manageFAQ",
-        component: ManageFAQSuggestionsComponent,
-        name: "manageFAQ"
-    },
-    {
-        path: "/manageFlaggedPosts",
-        component: ManageFlaggedPosts,
-        name: "manageFlaggedPosts"
-    },
-    {
-        path: "/addAdmins",
-        component: AddAdminsComponent,
-        name: "AddAdmins"
-    },
-    {
-        path: "/NotificationComponent",
-        component: NotificationComponent,
-    },
-    {
-        path: "/ThreadComponent",
-        component: ThreadComponent,
-    },
-    {
-        path: "/FrequentlyComponent",
-        component: FrequentlyComponent,
-    },
-    {
-        path: "/SupportProfile",
-        component: SupportProfile,
-    },
-    {
-        path: "/ThreadManagementComponent",
-        component: ThreadMangementComponent,
-    },
-    {
-        path: "/SupportChat",
-        component: SupportChat,
-    },
-    {
-        path: "/SupportStaffManagement",
-        component: SupportStaffManagement,
+    // },
+    // {
+    //     path: "/manageFAQ",
+    //     component: ManageFAQSuggestionsComponent,
+    //     name: "manageFAQ"
+    // },
+    // {
+    //     path: "/manageFlaggedPosts",
+    //     component: ManageFlaggedPosts,
+    //     name: "manageFlaggedPosts"
+    // },
+    // {
+    //     path: "/addAdmins",
+    //     component: AddAdminsComponent,
+    //     name: "AddAdmins"
+    // },
+    // {
+    //     path: "/NotificationComponent",
+    //     component: NotificationComponent,
+    // },
+    // {
+    //     path: "/ThreadComponent",
+    //     component: ThreadComponent,
+    // },
+    // {
+    //     path: "/FrequentlyComponent",
+    //     component: FrequentlyComponent,
+    // },
+    // {
+    //     path: "/SupportProfile",
+    //     component: SupportProfile,
+    // },
+    // {
+    //     path: "/ThreadManagementComponent",
+    //     component: ThreadMangementComponent,
+    // },
+    // {
+    //     path: "/SupportChat",
+    //     component: SupportChat,
+    // },
+    // {
+    //     path: "/SupportStaffManagement",
+    //     component: SupportStaffManagement,
 
-    },
+    // },
 
-    {
-        path: "/UserManagement",
-        component: UserManagement,
+    // {
+    //     path: "/UserManagement",
+    //     component: UserManagement,
 
-    },
+    // },
 
-    {
-        path: "/Requests",
-        component: RaisedRequests,
+    // {
+    //     path: "/Requests",
+    //     component: RaisedRequests,
 
-    }
+    // }
 ];
 const router = createRouter({
     history: createWebHistory(),

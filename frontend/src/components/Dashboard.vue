@@ -7,7 +7,7 @@
 import { mapGetters } from "vuex";
 import UserHome from './usercomponents/UserHome.vue';
 import AdminDashboard from './admincomponents/AdminDashboard.vue';
-import SupportProfile from './staffcomponents/SupportProfile.vue';
+import StaffHome from './staffcomponents/StaffHome.vue';
 import DashboardManagerComponent from './extracomponents/DashboardManager.vue';
 
 export default {
@@ -15,7 +15,7 @@ export default {
   components: {
     UserHome: UserHome,
     AdminDashboard: AdminDashboard,
-    SupportProfile: SupportProfile,
+    StaffHome: StaffHome,
     DashboardManager: DashboardManagerComponent
   },
   computed: {
@@ -25,7 +25,7 @@ export default {
         case 1:
             return "UserHome"
         case 2: 
-            return "SupportProfile"
+            return "StaffHome"
         case 3: 
             return "AdminDashboard"
         case 4:
